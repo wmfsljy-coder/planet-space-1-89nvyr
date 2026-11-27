@@ -50,6 +50,7 @@
 
         <section class="scene" data-title="제1법칙 — 궤도의 모양을 직접 그려 보자">
           <div class="story"><div class="who">🧑‍🔬</div><div class="say"><span class="name">케플러</span>“거리가 때마다 다르다면, 궤도는 원이 아닙니다. 화성까지의 거리를 여덟 방향에서 잰 자료가 여기 있어요. 태양을 <b>한 초점</b>에 두고 <b>이심률</b>을 바꿔 가며, 계산한 곡선이 관측점 여덟 개를 모두 지나가게 해 보세요. 긴반지름은 1.524 AU로 고정해 두었습니다.”</div></div>
+          <div class="pv" data-key="p1-2"><p class="pv-q">긴반지름은 그대로 두고 이심률을 0에서 점점 키우면, 화성의 궤도와 태양의 자리는 어떻게 될까요?</p><button class="pv-o" data-why="긴반지름이 고정이라 궤도 전체가 커지지는 않고 모양만 납작해집니다. 또 태양은 타원의 중심이 아니라 한 초점에 있습니다.">궤도가 커지고, 태양은 궤도 한가운데에 있다</button><button class="pv-o" data-ok>궤도가 납작한 타원이 되고, 태양은 중심에서 벗어난 한 초점에 놓인다</button><button class="pv-o" data-why="원 궤도에서 태양이 한쪽으로 치우친 모습을 떠올리기 쉽지만, 케플러가 찾은 것은 궤도 모양 자체가 타원이라는 것입니다. 이심률이 클수록 더 납작합니다.">궤도는 원 그대로이고, 태양만 한쪽으로 옮겨 간다</button><p class="pv-a"><b>케플러 제1법칙</b>: 행성은 태양을 한 <b>초점</b>으로 하는 <b>타원</b> 궤도를 돕니다. 이심률이 클수록 납작하고, 근일점과 원일점 거리의 차이가 커집니다.</p></div>
           <div class="stage-card">
             <div class="canvas-wrap studio"><canvas id="a-orbit" width="900" height="420"></canvas></div>
             <div class="controls">
@@ -66,6 +67,7 @@
 
         <section class="scene" data-title="제2법칙 — 같은 시간에 쓸고 간 넓이 재기">
           <div class="story"><div class="who">🧑‍🔬</div><div class="say"><span class="name">케플러</span>“모양은 찾았습니다. 이제 <b>빠르기</b>예요. 태양과 화성을 잇는 선분이 <b>60일 동안 쓸고 지나간 부채꼴</b>의 넓이를 재 봅시다. 출발 자리를 바꿔 가며 두 번 재면 무언가 보일 겁니다.”</div></div>
+          <div class="pv" data-key="p1-3"><p class="pv-q">근일점 부근과 원일점 부근에서 각각 60일 동안, 태양과 화성을 잇는 선분이 쓸고 간 넓이를 비교하면 어떻게 될까요?</p><button class="pv-o" data-why="근일점에서 화성이 빨리 움직이니 더 넓게 쓸 것 같지만, 태양과 가까워 부채꼴이 짧고 굵어집니다. 빠르기와 거리가 서로 맞물려 넓이는 같아집니다.">근일점 부근이 더 넓다</button><button class="pv-o" data-why="태양에서 멀어 부채꼴이 길어지니 넓을 것 같지만, 원일점에서는 화성이 느려 조금밖에 돌지 못합니다.">원일점 부근이 더 넓다</button><button class="pv-o" data-ok>두 넓이가 같다</button><p class="pv-a"><b>케플러 제2법칙(면적 속도 일정 법칙)</b>: 같은 시간 동안 쓸고 간 넓이는 같습니다. 그래서 행성은 태양에 가까운 <b>근일점</b>에서 빠르고, 먼 <b>원일점</b>에서 느립니다.</p></div>
           <div class="stage-card">
             <div class="canvas-wrap studio"><canvas id="a-area" width="900" height="400"></canvas></div>
             <div class="controls">
@@ -176,6 +178,7 @@
 
         <section class="scene" data-title="행성 비교실 — 밀도가 알려 주는 속">
           <div class="story"><div class="who">👨‍🚀</div><div class="say"><span class="name">비교실 연구원 태오</span>“행성끼리도 한 덩어리가 아닙니다. 겉보기 크기 말고 <b>평균 밀도</b>를 보세요. 밀도 = 질량 ÷ 부피(4/3·π·r³), 표면 중력 = G·질량 ÷ 반지름²로 직접 계산합니다. 아래 막대그래프에 <b>기준선</b>을 그어 여덟 행성을 두 무리로 갈라 보시죠.”</div></div>
+          <div class="pv" data-key="p2-3"><p class="pv-q">여덟 행성의 평균 밀도를 비교하면, 지구형 행성과 목성형 행성 가운데 어느 무리의 밀도가 더 클까요?</p><button class="pv-o" data-ok>지구형 행성</button><button class="pv-o" data-why="크고 무거우니 밀도도 클 것 같지만, 목성형 행성은 대부분 수소와 헬륨 같은 가벼운 물질이라 부피가 매우 큽니다. 질량을 부피로 나누면 밀도는 작고, 토성은 물보다도 작습니다.">목성형 행성</button><button class="pv-o" data-why="모두 행성이니 비슷할 것 같지만, 지구형 행성은 암석과 금속, 목성형 행성은 가벼운 기체와 얼음이 주성분이라 밀도가 뚜렷하게 갈립니다.">두 무리가 비슷하다</button><p class="pv-a"><b>지구형 행성</b>(수성·금성·지구·화성)은 암석과 금속으로 되어 밀도가 크고, <b>목성형 행성</b>(목성·토성·천왕성·해왕성)은 가벼운 기체와 얼음이 주성분이라 크기와 질량은 크지만 밀도가 작습니다.</p></div>
           <div class="stage-card">
             <div class="canvas-wrap studio" data-kind="text calc"><canvas id="b-dens" width="900" height="430"></canvas></div>
             <div class="controls">
@@ -209,6 +212,7 @@
         <section class="scene" data-title="소천체 탐사 — 돌무더기와 거꾸로 선 꼬리">
           <div class="story"><div class="who">👩‍🚀</div><div class="say"><span class="name">탐사 관제사 서린</span>“소행성 차례입니다. 일본의 <b>하야부사2</b>는 <span data-view="eyes:162173_ryugu" data-ask="류구는 공처럼 둥글까, 다른 모양일까?">류구</span>에서, 미국의 <b>오시리스-렉스</b>는 <span data-view="eyes:101955_bennu" data-ask="베누의 표면은 매끈할까, 울퉁불퉁할까?">베누</span>에서 표본을 가져왔어요. 탐사선이 붙잡힌 궤도로 질량을, 사진으로 크기를 알아냈더니 <b>평균 밀도가 1.19 g/cm³</b>밖에 안 됐습니다. 그런데 가져온 돌 알갱이 자체의 밀도는 약 <b>2.7 g/cm³</b>예요.”</div></div>
           <div class="case-file"><b class="k">류구</b> 평균 반지름 약 <b>448 m</b>, 질량 약 <b>4.5×10¹¹ kg</b> → 평균 밀도 1.19 g/cm³<br><b class="k">베누</b> 평균 반지름 약 <b>245 m</b>, 질량 약 <b>7.3×10¹⁰ kg</b> → 평균 밀도 1.19 g/cm³<br><b class="k">표본</b> 두 천체에서 가져온 돌 알갱이의 밀도 약 <b>2.7 g/cm³</b></div>
+          <div class="pv" data-key="p2-4"><p class="pv-q">혜성이 태양 가까이 와서 꼬리가 생겼을 때, 꼬리는 주로 어느 쪽을 향할까요?</p><button class="pv-o" data-why="달리는 차의 연기처럼 뒤로 날린다고 생각하기 쉽지만, 우주에는 꼬리를 뒤로 미는 공기가 없습니다. 꼬리를 미는 것은 태양에서 나오는 태양풍과 빛의 압력입니다.">늘 진행 방향의 뒤쪽</button><button class="pv-o" data-ok>태양의 반대쪽</button><button class="pv-o" data-why="태양의 중력에 끌려 태양 쪽으로 늘어질 것 같지만, 꼬리를 이루는 가스와 먼지는 태양풍과 빛의 압력에 밀려 태양 반대쪽으로 뻗습니다.">태양 쪽</button><p class="pv-a">혜성의 꼬리는 태양에 가까워져 얼음이 승화할 때 생기고, <b>태양풍</b>과 빛의 압력에 밀려 대체로 <b>태양 반대쪽</b>을 향합니다. 그래서 꼬리가 늘 진행 방향의 뒤쪽에 있는 것은 아닙니다.</p></div>
           <div class="stage-card">
             <div class="canvas-wrap studio" data-kind="model calc"><canvas id="b-rubble" width="900" height="330"></canvas></div>
             <div class="controls">
@@ -282,6 +286,7 @@
 
         <section class="scene" data-title="시선 속도법 — 흔들림에서 행성을 꺼내다">
           <div class="story"><div class="who">🧑‍🏫</div><div class="say"><span class="name">관측소장</span>“별과 행성은 서로 끌어당기며 <b>공통 질량 중심</b>을 함께 돕니다. 별도 작은 원을 그리죠. 그 움직임 가운데 <b>우리 시선 방향 성분</b>이 스펙트럼의 <span data-view="law:도플러 효과">도플러 이동</span>으로 나타납니다. 행성의 <b>공전 주기</b>는 곡선이 되풀이되는 간격, <b>행성의 질량</b>은 곡선의 <b>높이(진폭)</b>가 알려 줍니다. 주기부터 맞춰 보세요.”</div></div>
+          <div class="pv" data-key="p3-2"><p class="pv-q">공전 주기는 그대로 두고 행성의 질량만 키우면, 별의 시선 속도 곡선은 어떻게 변할까요?</p><button class="pv-o" data-why="무거운 행성이 더 빨리 돌 것 같지만, 공전 주기는 궤도 크기와 별의 질량이 정합니다. 행성의 질량은 별이 흔들리는 크기를 정합니다.">곡선이 되풀이되는 간격(주기)이 짧아진다</button><button class="pv-o" data-why="행성이 별보다 매우 가볍긴 하지만, 둘은 공통 질량 중심을 함께 돕니다. 행성이 무거울수록 질량 중심이 별에서 멀어져 별이 더 크게, 더 빠르게 흔들립니다.">변화 없다(행성은 별보다 훨씬 가벼워 별을 움직이지 못한다)</button><button class="pv-o" data-ok>곡선의 높이(진폭)가 커진다</button><p class="pv-a">별은 행성과 함께 <b>공통 질량 중심</b>을 돌며 흔들리고, 그 시선 방향 속도가 <b>도플러 이동</b>으로 나타납니다. 행성이 무거울수록 진폭이 커지고, 되풀이 간격은 행성의 공전 주기를 알려 줍니다.</p></div>
           <div class="stage-card">
             <div class="canvas-wrap studio" data-kind="model calc"><canvas id="c-rv" width="900" height="440"></canvas></div>
             <div class="sim-side">
@@ -306,6 +311,7 @@
         <section class="scene" data-title="식 현상법 — 별빛이 얼마나 가려졌나">
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">관측 천문학자 하윤</span>“<span data-view="law:도플러 분광학">시선 속도법</span>은 질량을 줍니다. 크기는요? 1999년, <b>HD 209458</b>이라는 별에서 행성이 <b>별 앞을 가로지르는</b> 장면이 처음 잡혔습니다. 이때 밝기가 줄어든 깊이는 곧 <b>가려진 면적의 비율</b>이에요. 즉 (행성 반지름 ÷ 별 반지름)²입니다.”</div></div>
           <figure class="hero-art"><img src="img/transit.webp" alt="투명한 아크릴 상자 안에 우주를 담은 모형. 가운데에서 노란 별이 빛나고, 별을 지나는 가는 궤도 고리 위의 작은 행성이 별 앞을 지나며 검은 점으로 보인다. 상자 바깥 오른쪽 아래에는 작은 망원경이 궤도면을 따라 상자를 겨누고 있다." width="900" height="900" loading="lazy"><figcaption><b>행성은 보이지 않아도 그 그림자의 크기는 잴 수 있습니다</b> 별은 너무 밝고 행성은 너무 작아서, 수백 광년 밖의 행성을 직접 찍기는 어렵습니다. 그런데 행성의 궤도면이 우리 시선과 거의 나란하면, 행성이 공전할 때마다 별 앞을 지나며 별빛을 아주 조금 가립니다. 별의 밝기가 얼마나 줄어드는지를 정밀하게 재면, 보이지 않는 행성의 크기를 알아낼 수 있습니다. <span class="art-note">⚠ 별과 행성의 크기, 궤도 크기는 실제 비율이 아닙니다.</span></figcaption></figure>
+          <div class="pv" data-key="p3-3"><p class="pv-q">행성의 반지름을 2배로 키우면, 별 앞을 지날 때 밝기가 줄어드는 깊이는 어떻게 될까요?</p><button class="pv-o" data-ok>4배가 된다</button><button class="pv-o" data-why="반지름에 비례할 것 같지만, 가려지는 것은 별 원판의 넓이입니다. 넓이는 반지름의 제곱에 비례합니다.">2배가 된다</button><button class="pv-o" data-why="행성의 부피(반지름의 세제곱)를 떠올리기 쉽지만, 우리가 보는 것은 행성이 별을 가린 그림자, 곧 원판의 넓이입니다.">8배가 된다</button><p class="pv-a">밝기 감소 깊이는 가려진 넓이의 비율, 곧 <b>(행성 반지름 ÷ 별 반지름)²</b>입니다. <b>식 현상법</b>은 행성의 크기를, 시선 속도법은 질량을 알려 주므로 둘을 합치면 밀도까지 알 수 있습니다.</p></div>
           <div class="stage-card">
             <div class="canvas-wrap studio" data-kind="model calc" data-kind-pos="br"><canvas id="c-tr" width="900" height="640"></canvas></div>
             <div class="controls">
@@ -323,6 +329,7 @@
 
         <section class="scene" data-title="생명 가능 지대 — 물이 액체로 있을 수 있는 띠">
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">하윤</span>“이제 본론입니다. 별에서 너무 가까우면 물이 끓어 날아가고, 너무 멀면 얼어붙습니다. 그 사이의 띠를 <b><span data-view="law:생명체 거주가능 영역">생명 가능 지대</span></b>라고 해요. 경계는 별의 <b>광도</b>가 정합니다. 광도는 별의 반지름과 표면 온도로 계산하고, 경계 거리는 광도의 제곱근에 비례합니다.”</div></div>
+          <div class="pv" data-key="p3-4"><p class="pv-q">태양보다 훨씬 작고 차가운 별(TRAPPIST-1)의 생명 가능 지대는, 태양의 생명 가능 지대와 비교해 어디에 있을까요?</p><button class="pv-o" data-why="물이 액체로 있는 온도는 어디서나 같으니 거리도 같을 것 같지만, 행성이 받는 에너지는 별의 광도에 따라 달라집니다. 어두운 별은 가까이 가야 같은 에너지를 받습니다.">태양과 같은 거리(약 1 AU)에 있다</button><button class="pv-o" data-why="작은 별 둘레의 행성계가 넓게 퍼져 있을 것 같지만, 광도가 작은 별일수록 따뜻한 띠가 별 쪽으로 좁혀 들어옵니다.">태양보다 더 먼 곳에 있다</button><button class="pv-o" data-ok>별에 훨씬 가까운 곳에 있다</button><p class="pv-a"><b>생명 가능 지대</b>는 물이 액체로 있을 수 있는 거리의 띠로, 경계 거리는 별 <b>광도</b>의 제곱근에 비례합니다. 광도가 작은 적색 왜성의 생명 가능 지대는 별에 아주 가깝습니다.</p></div>
           <div class="stage-card">
             <div class="toggle-row" style="padding:18px 22px 0;"><div class="seg" id="c-star"></div></div>
             <div class="canvas-wrap studio" style="margin-top:16px" data-kind="model calc"><canvas id="c-hz" width="900" height="420"></canvas></div>
@@ -412,7 +419,7 @@
 </div>
 
 <button class="theme-toggle" id="themeToggle">라이트 모드</button>
-<script src="../assets/theme.js?v=b0f7ed73"></script>
+<script src="../assets/theme.js?v=f0b96aff"></script>
 <script src="../assets/scope.js?v=cecf172a"></script>
 <script src="../assets/kit.js?v=94e3bd47"></script>
 <script src="../assets/story.js?v=cd80882e"></script>
