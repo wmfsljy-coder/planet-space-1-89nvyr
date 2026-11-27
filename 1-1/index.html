@@ -58,7 +58,7 @@
         <section class="scene" data-title="명령은 언제 도착하는가">
           <div class="story"><div class="who">👩‍🚀</div><div class="say"><span class="name">한별</span>“이제 아까 그 11분의 정체를 직접 재 봅시다. 거리를 바꿔 가며 <b>편도 지연</b>과 <b>왕복 지연</b>이 얼마나 되는지 확인하세요. 화성은 공전하면서 지구와의 거리가 <b>0.37 AU에서 2.67 AU까지</b> 크게 달라집니다.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="a-c-delay" width="900" height="400"></canvas></div>
+            <div class="canvas-wrap studio" data-kind="calc"><canvas id="a-c-delay" width="900" height="400"></canvas></div>
             <div class="sim-side">
               <div class="readout" id="a-read"></div>
               <div>
@@ -102,6 +102,14 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wk1"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 지구와 천체 사이의 거리를 빛의 속력으로 나눈 값만 지연 시간으로 봅니다. <b>실제로는</b> 지구가 자전하므로 그 시각에 천체를 향한 안테나로 신호를 보내야 하고, 화성 로버는 대개 화성 궤도선을 거쳐 신호를 주고받아 궤도선이 머리 위를 지날 때까지 기다리는 시간이 더해집니다. 태양이 지구와 화성 사이를 가리는 때(합)에는 약 2주 동안 명령을 거의 보내지 않습니다.</li>
+      <li><b>모형에서는</b> 하루에 한 번 명령을 보내고, 로버의 하루(솔)를 지구의 하루처럼 셉니다. <b>실제로</b> 화성의 하루는 약 24시간 40분이라 지구 시각과 날마다 조금씩 어긋나서, 관제팀이 한동안 화성 시각에 맞춰 일하기도 합니다.</li>
+      <li><b>모형 그림에서는</b> 거리를 10배마다 같은 간격이 되는 눈금으로 줄이고 천체를 크게 그렸습니다. <b>실제로</b> 화성까지의 거리는 달까지 거리의 약 140배에서 1,000배 남짓이나 됩니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 장면의 거리(화성이 가장 가까울 때 0.37 AU·가장 멀 때 2.67 AU, 보이저 1호 2025년 무렵 약 167 AU)는 공개된 대표값이고, 빛의 속력 299,792.458 km/s는 정의값입니다. 로버의 하루 주행 거리와 자율 항법 효율은 수업용으로 정한 값입니다. 바탕 자료: NASA 공개 자료, 2022 개정 교육과정 행성우주과학 교과서.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -149,7 +157,7 @@
           <div class="story"><div class="who">👩‍💼</div><div class="say"><span class="name">전력 회사 담당자</span>“예보관님, 저희는 경보를 받으면 송전망을 <b>보호 모드</b>로 돌립니다. 다만 보호 모드에서는 보낼 수 있는 전력이 줄어 손해가 커요. <b>너무 일찍 돌려도, 너무 늦게 돌려도 안 됩니다.</b> 폭풍이 닿기 <b>6시간 안쪽</b>에 시작하도록 시각을 잡아 주세요.”</div></div>
           <figure class="hero-art"><img src="img/space-storm.webp" alt="투명한 아크릴 상자 안에 꾸민 우주 모형. 왼쪽 위의 태양에서 주황색 플라스마 구름이 뿜어져 나와 오른쪽 지구 쪽으로 퍼지고, 지구를 둘러싼 푸른 자기력선은 태양 쪽에서 둥글게 눌리고 반대쪽으로 길게 꼬리를 끈다. 지구의 남북 극지방에는 초록색 오로라 고리가 빛나고, 태양과 지구 사이에 작은 탐사선이 떠 있다." width="900" height="900" loading="lazy"><figcaption><b>지구는 보이지 않는 자기 방패 뒤에 숨어 있습니다</b> 지구 둘레에는 지구 자기장이 만든 자기권이 있어서, 태양에서 날아오는 전기를 띤 입자 대부분을 옆으로 비껴 보냅니다. 태양에서 거대한 플라스마 구름이 날아와 이 방패를 세게 누르면 자기권이 흔들리면서 극지방의 오로라가 커지고, 땅 위의 긴 송전선에는 원하지 않는 전류가 흐릅니다. 그림 속 크기와 거리는 실제 비율이 아닙니다.</figcaption></figure>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="b-c-storm" width="900" height="612"></canvas></div>
+            <div class="canvas-wrap studio" data-kind="model calc"><canvas id="b-c-storm" width="900" height="612"></canvas></div>
             <div class="sim-side">
               <div class="readout" id="b-storm-read"></div>
               <div>
@@ -187,6 +195,15 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wk2"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 흑점 수가 정확히 11년마다 매끈한 곡선을 따라 5개에서 165개 사이를 오르내립니다. <b>실제 태양 주기는</b> 길이가 약 9~14년으로 달라지고, 극대기의 흑점 수도 주기마다 크게 다르며, 대개 늘어날 때가 줄어들 때보다 빠릅니다.</li>
+      <li><b>모형에서는</b> 고에너지 입자가 광속의 30% 속력으로 태양에서 지구까지 곧게 날아옵니다. <b>실제로는</b> 입자가 태양에서 나선 모양으로 휘어 뻗은 자기장을 따라 움직여서, 폭발이 태양의 어느 쪽에서 일어났는지에 따라 지구에 닿는 양과 시각이 크게 달라집니다.</li>
+      <li><b>모형에서는</b> 태양과 지구 사이를 1 AU로 고정하고, 관측 위성이 있는 L1(지구에서 약 150만 km)은 12배 늘려 그렸습니다. <b>실제로는</b> 지구의 공전 궤도가 타원이라 태양까지의 거리가 1년 동안 약 1억 4,700만~1억 5,200만 km로 바뀌어, 빛이 오는 시간도 8분 20초 앞뒤로 조금씩 달라집니다.</li>
+      <li><b>모형에서는</b> 코로나 질량 방출의 속력을 슬라이더 범위 안의 값 하나로 정합니다. <b>실제 코로나 질량 방출은</b> 초속 100 km가 안 되는 것부터 3,000 km가 넘는 것까지 다양하고, 평소에 부는 태양풍(초속 약 300~800 km)보다 느린 것도 있습니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 장면의 흑점 수 곡선과 코로나 질량 방출 속력은 수업용으로 단순하게 정한 값입니다. 이 소단원의 실제 자료 카드: 미국 해양대기청(NOAA) 우주기상예보센터(SWPC) 관측 태양 주기 지수 — 벨기에 왕립 천문대 SILSO의 국제 흑점 수(버전 2) 연평균 · 기상청 날씨누리 과거 관측 일별 자료, 창원(155) 연평균 기온(1986~2025). 함께 볼 자료: 우주항공청 우주환경센터.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -213,7 +230,7 @@
         <section class="scene" data-title="얼마나 큰 것이 얼마나 위험한가">
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">수아</span>“먼저 상대를 알아야죠. 소행성이 가진 <b>운동 에너지</b>가 그대로 충돌 에너지가 됩니다. 지름을 바꿔 가며 에너지가 어떻게 달라지는지 보세요. 지름이 <b>2배</b>가 되면 에너지는 몇 배가 될까요?”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="c-c-energy" width="900" height="390"></canvas></div>
+            <div class="canvas-wrap studio" data-kind="calc"><canvas id="c-c-energy" width="900" height="390"></canvas></div>
             <div class="sim-side">
               <div class="readout" id="c-read"></div>
               <div class="ctrl-group">
@@ -230,7 +247,7 @@
           <div class="story"><div class="who">👩‍🔬</div><div class="say"><span class="name">수아</span>“영화처럼 폭파하지 않습니다. <b>살짝 밀어 속력만 아주 조금 바꿔 주면</b> 됩니다. 소행성은 그 뒤로 수천 번 공전하면서 조금씩 제자리에서 어긋나, 약속 장소에 늦게 도착하게 되거든요. 밀어 주는 힘이 같아도 <b>일찍 밀수록 어긋남이 훨씬 커집니다.</b>”</div></div>
           <div class="story"><div class="who">👨‍🔧</div><div class="say"><span class="name">충돌체 설계 기술자</span>“다만 조건이 있습니다. 속도 변화를 <b>40 mm/s보다 크게</b> 주려면 그만큼 세게 들이받아야 하는데, 그러면 소행성이 부서져 <b>여러 조각이 쏟아질</b> 위험이 있어요. 40 mm/s 이하로 맞춰 주세요.”</div></div>
           <div class="stage-card">
-            <div class="canvas-wrap studio"><canvas id="c-c-dart" width="900" height="420"></canvas></div>
+            <div class="canvas-wrap studio" data-kind="model calc"><canvas id="c-c-dart" width="900" height="420"></canvas></div>
             <div class="sim-side">
               <div class="readout" id="c-dart-read"></div>
               <div>
@@ -270,6 +287,15 @@
           <div class="stage-card" style="padding:6px 0 4px"><div id="wk3"></div></div>
         </section>
       </div>
+      <details class="model-gap"><summary>🔍 이 모형이 실제와 다른 점</summary>
+      <ul>
+      <li><b>모형에서는</b> 소행성을 밀도 3,000 kg/m³인 공으로 보고, 충돌 속력을 19 km/s로 고정해 E = ½mv²로 에너지를 냅니다. <b>실제 소행성은</b> 구멍이 많은 자갈 더미에서 철이 많은 것까지 밀도가 크게 다르고, 지구에 들어오는 속력도 약 11 km/s에서 70 km/s 정도까지 달라집니다.</li>
+      <li><b>모형에서는</b> 에너지의 크기만으로 피해 규모를 견줍니다. <b>실제로는</b> 같은 에너지라도 소행성의 성분과 대기에 들어오는 각도에 따라 하늘에서 터질지 땅에 닿을지가 달라지고, 피해의 모습도 달라집니다.</li>
+      <li><b>모형에서는</b> 소행성을 밀어 태양 둘레를 도는 궤도 자체를 비껴가게 합니다. <b>실제 DART 실험(2022년 9월 26일)은</b> 쌍소행성 디디모스를 도는 작은 위성 디모르포스에 부딪쳐, 처음 약 11시간 55분이던 공전 주기를 약 32분 줄였습니다. 쌍소행성 전체가 태양을 도는 궤도의 변화는 이보다 훨씬 작았습니다.</li>
+      <li><b>이야기에서는</b> 위험한 소행성을 충돌 몇 년 전에 미리 찾아냈다고 둡니다. <b>실제로는</b> 지름 140 m 이상인 지구 접근 천체 가운데 아직 찾지 못한 것이 많이 남아 있다고 추정되고, 첼랴빈스크 소행성처럼 태양 쪽에서 다가오는 작은 천체는 미리 보기 어렵습니다.</li>
+      </ul>
+      <p class="gap-src"><b>자료 출처</b> · 첼랴빈스크 소행성(2013년, 지름 약 20 m, 상공 약 30 km에서 폭발)과 DART 실험(2022년 9월 26일)은 실제 기록이고, 히로시마 원자 폭탄(15 kt)·1908년 퉁구스카(추정)의 에너지는 공개된 추정값입니다. 밀도 3,000 kg/m³, 속력 19 km/s, ‘40 mm/s를 넘으면 부서진다’는 기준은 수업용으로 정한 값입니다. 바탕 자료: NASA 공개 자료, 2022 개정 교육과정 행성우주과학 교과서.</p>
+      </details>
       <p class="teacher-note">교사용: 주소 끝에 <a href="?open=1">?open=1</a>을 붙이면 교사 미리 보기로 열립니다.</p>
     </section>
 
@@ -316,31 +342,31 @@
 </div>
 
 <button class="theme-toggle" id="themeToggle">라이트 모드</button>
-<script src="../assets/theme.js?v=c3418585"></script>
+<script src="../assets/theme.js?v=b0f7ed73"></script>
 <script src="../assets/scope.js?v=cecf172a"></script>
 <script src="../assets/kit.js?v=94e3bd47"></script>
 <script src="../assets/story.js?v=cd80882e"></script>
 <script src="../assets/quiz.js?v=d1e13494"></script>
-<script src="../assets/lab.js?v=5ab4e410"></script>
+<script src="../assets/lab.js?v=8e2a04e0"></script>
 <script src="../assets/share-config.js?v=5bb01df7"></script>
 <script src="../assets/share.js?v=8ebc37fa"></script>
 <script src="../assets/account.js?v=435378ac"></script>
-<script src="episodes.js"></script>
-<script src="worked.js"></script>
-<script src="handoff.js"></script>
-<script src="quiz-items.js"></script>
+<script src="episodes.js?v=3b963474"></script>
+<script src="worked.js?v=5fcb222f"></script>
+<script src="handoff.js?v=e33aacf8"></script>
+<script src="quiz-items.js?v=c6347c88"></script>
 <script src="../assets/review.js?v=c07fe051"></script>
 <script src="../assets/peer.js?v=b6f0b008"></script>
 <script src="../assets/qboard.js?v=b3bb8d32"></script>
-<script src="lab-cases.js"></script>
+<script src="lab-cases.js?v=5d0e1bfd"></script>
 <script src="../assets/link.js?v=48d3d217"></script>
-<script src="data/sunspots.js"></script>
-<script src="data/cw155.js"></script>
-<script src="real-cases.js"></script>
+<script src="data/sunspots.js?v=69f527e7"></script>
+<script src="data/cw155.js?v=03f6a79b"></script>
+<script src="real-cases.js?v=004f0b77"></script>
 <script src="../assets/precheck.js?v=6e00687c"></script>
-<script src="precheck-items.js"></script>
-<script src="try-items.js"></script>
-<script src="scale-items.js"></script>
+<script src="precheck-items.js?v=6389a959"></script>
+<script src="try-items.js?v=9395c5e8"></script>
+<script src="scale-items.js?v=6fea40bd"></script>
 <script src="https://wmfsljy-coder.github.io/science-teacher-hub-qtrqwc/assets/video-links.js" defer></script>
 </body>
 </html>
