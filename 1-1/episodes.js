@@ -367,7 +367,7 @@ function verdict(ctx, x, y, w, h, head, headCol, rows, y0, gap) {
     var shown = null, target = 0, wheel = 0;
     /* 블록 모형: 화성 예제로 분화구 바닥을 잘라 낸 땅. x = 진행 방향(900 m), 앞면·오른쪽 면 = 땅속 지층 */
     var LW = 628, BL = 560, BD = 130, ZG = 56, memo = {};
-    var I = K.iso({ ox: 196, oy: 142, s: 0.66, L: BL, D: BD });
+    var I = K.iso({ ox: 196, oy: 142, s: 0.66, L: BL, D: BD, cv: canvas });
     var YC = BD * 0.56, XD = BL - 52;                     /* 길(y)과 삼각주 바위 자리(x) */
     function X(m) { return 14 + clamp(m, 0, GOAL) / GOAL * (XD - 44); }
     function zOf(x, y) { return ZG + 2.6 * Math.sin(x / 37 + 1) + 1.8 * Math.sin(y / 13 + x / 61) + (x > XD - 14 ? 0 : 0); }
@@ -441,7 +441,7 @@ function verdict(ctx, x, y, w, h, head, headCol, rows, y0, gap) {
       ctx.clearRect(0, 0, W, H);
       var r = run();
       target = r.pos; if (shown === null || REDUCE) shown = target;
-      ctx.drawImage(cached(canvas, W, H, memo, "land", paintLand), 0, 0, W, H);
+      ctx.drawImage(cached(canvas, W, H, memo, "land" + I.viewName + I.real, paintLand), 0, 0, W, H);
       ctx.save(); ctx.beginPath(); ctx.roundRect(0, 0, LW, H, 14); ctx.clip();
       /* 바퀴 자국 */
       var xr = X(shown);
@@ -456,9 +456,9 @@ function verdict(ctx, x, y, w, h, head, headCol, rows, y0, gap) {
       ctx.restore();
       /* 이름표 */
       var box = [0, LW];
-      I.label(ctx, X(SAFE) * .5, YC - 26, zOf(X(SAFE) * .5, YC - 26), "지구에서 사진으로 확인한 안전 구간 25 m", 92, -34, "#9ff0d0", box);
+      I.label(ctx, X(SAFE) * .5, YC - 26, zOf(X(SAFE) * .5, YC - 26), "지구에서 사진으로 확인한 안전 구간 25 m", 92, I.viewName === "side" ? -72 : -34, "#9ff0d0", box);
       I.label(ctx, BL - 16, BD * .52, ZG + 45, "삼각주 바위 · 900 m", 30, -70, "#ffd35a", box);
-      I.label(ctx, BL, BD * .7, 20, "땅속 퇴적층", 28, 16, "#ffd9b8", box);
+      I.label(ctx, BL, BD * .7, 20, "땅속 퇴적층", 28, I.viewName === "top" ? -30 : 16, "#ffd9b8", box);
       K.pill(ctx, crashNow ? "충돌! 보지 못한 바위" : "로버 · " + Math.round(shown) + " m", head.x, Math.max(head.y - 12, 116), { s: 11.5, a: "center", c: crashNow ? "#ff9aac" : "#bfe6ff", box: box });
       K.bigText(ctx, r.crash ? "보지 못한 땅에서 사고" : "하루 " + Math.round(r.per) + " m 전진", 18, 50, 27, r.crash ? "#ff8a9e" : "#ffd35a");
       K.bigText(ctx, r.crash ? "안전 구간은 앞쪽 25 m뿐" : (r.sol ? r.sol + "솔 만에 900 m 도착" : "30솔 뒤 " + Math.round(r.pos) + " m / 900 m"), 18, 82, 18, "#ffffff");
@@ -720,7 +720,7 @@ function verdict(ctx, x, y, w, h, head, headCol, rows, y0, gap) {
 
     /* ── 위: 우주 디오라마(유리 진열장) — x = 태양(왼쪽 뒤) → 지구(오른쪽 앞), y = 깊이, z = 위 ── */
     var TH = 452;
-    var I = K.iso({ ox: 262, oy: 98, s: 0.68, L: 820, D: 180 });
+    var I = K.iso({ ox: 262, oy: 98, s: 0.68, L: 820, D: 180, cv: canvas });
     var BL = I.L, BD = I.D, BZ = 104, Z0 = 48, DC = BD / 2;
     var SX = 70, EX = 740, LXW = EX - (L1_KM / AU_KM) * (EX - SX) * 12;   /* L1 은 12배 과장 */
     var LANE = [-62, 0, 62], ph = 0, amb = !REDUCE;
@@ -748,6 +748,7 @@ function verdict(ctx, x, y, w, h, head, headCol, rows, y0, gap) {
     function drawBox(t, arrH) {
       var s = clock * 3600, fr = [clamp(s / t.x, 0, 1), clamp(s / t.p, 0, 1), clamp(s / t.c, 0, 1)], hitC = fr[2] >= 1, k, i, p, q;
       K.studio(ctx, 0, 0, W, TH, { x: 455, y: 330, rx: 360, ry: 110 });
+      ctx.save(); if (I.viewName === "top") { ctx.translate(W / 2, 226); ctx.scale(0.86, 0.86); ctx.translate(-W / 2, -226); }   /* 위에서 보면 진열장이 길어져 위아래가 잘리므로 조금 줄인다 */
       var A = I.P(0, 0, BZ), B = I.P(BL, 0, BZ), Cc = I.P(BL, 0, 0), Dd = I.P(BL, BD, 0), E = I.P(0, BD, 0), F = I.P(0, BD, BZ), O = I.P(0, 0, 0), Bt = I.P(BL, BD, BZ);
       /* 진열장 안쪽: 어두운 우주 */
       var sp = ctx.createLinearGradient(A.x, A.y, Dd.x, Dd.y); sp.addColorStop(0, "#0b1030"); sp.addColorStop(1, "#151c4a");
@@ -841,6 +842,7 @@ function verdict(ctx, x, y, w, h, head, headCol, rows, y0, gap) {
       K.pill(ctx, "지구", eP.x - 6, eP.y + 46, { s: 11, a: "center", c: KC.blue, box: box });
       K.pill(ctx, hitC ? "자기권이 눌리고 오로라" : "자기권(지구 자기장)", eP.x + 34, eP.y - 34, { s: 10.5, c: hitC ? KC.orange : KC.blue, box: box });
       K.pill(ctx, "태양 → 지구 1 AU", 14, 24, { s: 11, c: KC.ink, box: box });
+      ctx.restore();
       /* 큰 제목 */
       var hl = headline(t, arrH);
       K.bigText(ctx, hl[0], W - 18, 54, 25, "#ffffff", "right");
@@ -1340,6 +1342,7 @@ window.sthWork({
     { key: "r3", label: "③ 빗나가게 하라" },
     { key: "rQuiz", label: "수준별 문제" },
     { key: "rLab", label: "응용 실험실" },
+    { key: "rObs", label: "실제 자료 탭" },
     { key: "rReal", label: "실제 자료" }
   ],
   items: [
@@ -1357,6 +1360,7 @@ window.sthShare({
     { key: "r3", label: "③ 빗나가게 하라" },
     { key: "rQuiz", label: "수준별 문제" },
     { key: "rLab", label: "응용 실험실" },
+    { key: "rObs", label: "실제 자료 탭" },
     { key: "rReal", label: "실제 자료" }
   ],
   line: { id: "all", label: "세 기록을 꿰는 한 문장" }

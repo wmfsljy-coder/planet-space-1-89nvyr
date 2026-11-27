@@ -198,7 +198,7 @@ function solveKepler(e, M) {
     var Mm = 0, orbiting = !REDUCE;
     /* 우주 진열장 블록 모형: 상자 속 수평판(궤도면) 위에 화성 궤도. 위에서 본 좌표(X 오른쪽, Y 위)를 판 위로 옮긴다 */
     var LW = 628, ZH = 150, ZC = 62, SCw = 74, memo = {};
-    var I = K.iso({ ox: 340, oy: 150, s: 0.62, L: 330, D: 330 });
+    var I = K.iso({ ox: 340, oy: 150, s: 0.62, L: 330, D: 330, cv: canvas });
     var CXw = 190, CYw = 165;                               /* 태양(초점) 자리 */
     function Pp(X, Y, z) { return I.P(CXw + X * SCw, CYw - Y * SCw, z == null ? ZC : z); }
     function paintCase(c) {
@@ -214,7 +214,7 @@ function solveKepler(e, M) {
     }
     function draw() {
       ctx.clearRect(0, 0, W, H);
-      ctx.drawImage(cached(canvas, W, H, memo, "case", paintCase), 0, 0, W, H);
+      ctx.drawImage(cached(canvas, W, H, memo, "case" + I.viewName + I.real, paintCase), 0, 0, W, H);
       var g = maxGap(e), ok = g <= 0.010;
       /* 모형 곡선 */
       ctx.save(); ctx.shadowColor = KC.blue; ctx.shadowBlur = 8; ctx.strokeStyle = KC.blue; ctx.lineWidth = 2.6; ctx.beginPath();
@@ -328,7 +328,7 @@ function solveKepler(e, M) {
 
     /* 우주 진열장 블록 모형: 궤도면 위에서 60일 동안 쓸고 간 부채꼴 */
     var LW = 628, ZH = 140, ZC = 58, SCw = 80, memo = {};
-    var I = K.iso({ ox: 340, oy: 146, s: 0.6, L: 330, D: 330 });
+    var I = K.iso({ ox: 340, oy: 146, s: 0.6, L: 330, D: 330, cv: canvas });
     var CXw = 180, CYw = 165;
     function Pp(X, Y, z) { return I.P(CXw + X * SCw, CYw - Y * SCw, z == null ? ZC : z); }
     function polar(r, th) { return Pp(r * Math.cos(th), r * Math.sin(th)); }
@@ -344,7 +344,7 @@ function solveKepler(e, M) {
     }
     function draw() {
       ctx.clearRect(0, 0, W, H);
-      ctx.drawImage(cached(canvas, W, H, memo, "case", paintCase), 0, 0, W, H);
+      ctx.drawImage(cached(canvas, W, H, memo, "case" + I.viewName + I.real, paintCase), 0, 0, W, H);
       var p = path || sweep(start), upto = path ? shown : 0, s0 = Pp(0, 0);
       /* 쓸고 간 부채꼴 */
       if (upto > 0) {
@@ -1345,7 +1345,7 @@ function solveKepler(e, M) {
 
     /* ── 진열장: x 0~L(화면 오른쪽 아래), y 0~D(왼쪽 아래), z 위. 지구는 +x 쪽 바깥 ── */
     var DH = 440;
-    var I = K.iso({ ox: 372, oy: 218, s: 0.72, L: 300, D: 300 });
+    var I = K.iso({ ox: 372, oy: 218, s: 0.72, L: 300, D: 300, cv: canvas });
     var L = I.L, D = I.D, ZH = 210, ZC = 105, CX = 150, CY = 150;
     var A = 104, RS = 23;                              /* 궤도 반지름 · 별 반지름(그림 단위, 크게 과장) */
     var EARTH = { x: L + 175, y: CY, z: ZC };
@@ -1392,6 +1392,7 @@ function solveKepler(e, M) {
       var k = kk(), d = depth(rp), ph = curPh();
       var pa = phase != null ? Math.asin(clamp(phase * RS / A, -1, 1)) : th;
       K.studio(ctx, 0, 0, W, DH, { x: I.P(L, D, 0).x - 60, y: I.P(L, D, 0).y - 40, rx: 300, ry: 52 });
+      ctx.save(); if (I.viewName === "top") ctx.translate(0, -26);   /* 위에서 볼 때 블록 아래 끝이 잘리지 않게 */
       /* 안쪽 우주: 바닥과 뒤쪽 두 벽 */
       var f00 = I.P(0, 0, 0), fL0 = I.P(L, 0, 0), fLD = I.P(L, D, 0), f0D = I.P(0, D, 0);
       var t00 = I.P(0, 0, ZH), tL0 = I.P(L, 0, ZH), t0D = I.P(0, D, ZH);
@@ -1433,7 +1434,8 @@ function solveKepler(e, M) {
       K.line(ctx, sc, ep, "rgba(255,211,107,.85)", 1.6, [7, 5]);
       /* 지구(관측자) */
       K.earth(ctx, ep.x, ep.y, 11);
-      K.pill(ctx, "지구 · 망원경", ep.x - 6, ep.y + 30, { s: 11, a: "center", c: KC.blue });
+      if (I.viewName === "oblique") K.pill(ctx, "지구 · 망원경", ep.x - 6, ep.y + 30, { s: 11, a: "center", c: KC.blue });
+      else K.pill(ctx, "지구 · 망원경", ep.x + (I.viewName === "top" ? -16 : 4), ep.y + (I.viewName === "top" ? 4 : 30), { s: 11, a: "right", c: KC.blue });   /* 위·단면: 망원경 그림과 겹치지 않게 */
       /* 이름표 */
       var box = [0, 650];
       I.label(ctx, CX, CY, ZC + RS, "별 HD 209458 (태양의 1.20배)", -178, -40, "#ffe7a8", box);
@@ -1445,6 +1447,7 @@ function solveKepler(e, M) {
       /* 망원경으로 본 모습 */
       var cx = INS.x, cy = INS.y, RR = INS.R;
       K.line(ctx, { x: ep.x + 12, y: ep.y - 4 }, { x: cx - INS.r * .9, y: cy + 30 }, "rgba(80,100,140,.55)", 1.2, [4, 4]);
+      ctx.restore();
       ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, INS.r, 0, 6.2832); ctx.fillStyle = "#05071a"; ctx.fill();
       ctx.lineWidth = 5; ctx.strokeStyle = "#2b3350"; ctx.stroke(); ctx.clip();
       var cg = ctx.createRadialGradient(cx, cy, RR * .8, cx, cy, RR * 1.5); cg.addColorStop(0, "rgba(255,200,110,.35)"); cg.addColorStop(1, "rgba(255,170,80,0)");
@@ -1803,6 +1806,7 @@ window.sthWork({
     { key: "r3", label: "③ 별이 흔들렸다" },
     { key: "rQuiz", label: "수준별 문제" },
     { key: "rLab", label: "응용 실험실" },
+    { key: "rObs", label: "실제 자료 탭" },
     { key: "rInq", label: "교과서 실험" },
     { key: "rReal", label: "실제 자료" }
   ],
@@ -1821,6 +1825,7 @@ window.sthShare({
     { key: "r3", label: "③ 별이 흔들렸다" },
     { key: "rQuiz", label: "수준별 문제" },
     { key: "rLab", label: "응용 실험실" },
+    { key: "rObs", label: "실제 자료 탭" },
     { key: "rInq", label: "교과서 실험" },
     { key: "rReal", label: "실제 자료" }
   ],
